@@ -11,7 +11,7 @@ removeButton.addEventListener('click',removeItem)
 
 function addItem(){
     var input = document.getElementById('input');
-    var item = input.nodeValue;
+    var item = input.value;
     ul = document.getElementById('list');
     var textnode = document.createTextNode(item);
 
@@ -43,4 +43,16 @@ function addItem(){
 
         input.value = '';
 }
+}
+
+// To remove items from the list we run a while loop inside a for loop. When clicking the 
+// Remove todo button the function remove item loads and checks for the conddition we have set.
+
+function removeItem(){
+    li = ul.children
+    for(let index = 0;index<li.length;index++){
+        while( li[index]&& li[index].children[0].checked){
+            ul.removeChild(li[index])
+        }
+    }
 }
